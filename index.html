@@ -12,12 +12,46 @@
     <script type="module" src="script.js"></script>
   </head>
   <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
+    <div id="screen-box" class="box-container"></div>
+    
+    <script>
+    function makeBox(heading,text)
+    {
+
+      let box = document.createElement('div');
+      box.classList.add('numeric-box');
+    
+      let box_numeric_text = document.createElement('div');
+      box_numeric_text.classList.add('numbers');/**/
+      box_numeric_text.innerText = heading;
+
+      let alpha = document.createElement('div');
+      alpha.classList.add('alpha_text');
+      alpha.innerText = text;
+      
+      
+      box.appendChild(box_numeric_text);
+      document.getElementById('screen-box').appendChild(box);
+
+      document.getElementById('screen-box').appendChild(alpha);
+    }
+
+      let data =[
+        { heading: 1, text: 'One' },
+        { heading: 2, text: 'two' },
+        { heading: 3, text: 'three' },
+        { heading: 4, text: 'four' },
+        { heading: 5, text: 'five' }
+      ];
+
+      for(let i=0;i<data.length;i++)
+      {
+        let item = data[i];
+        makeBox(item.heading,item.text);
+      }
+
+     
+    </script>
   </body>
 </html>
+
