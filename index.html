@@ -11,47 +11,50 @@
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="script.js"></script>
   </head>
+
   <body>
-    <div id="screen-box" class="box-container"></div>
-    
-    <script>
-    function makeBox(heading,text)
-    {
+    <div id="boxes" class="box-container">
+      <script>
+      function multiple_boxes(heading, text)
+      {
+      let bothboxes = document.createElement('div');
+      bothboxes.classList.add('bothboxes');
 
       let box = document.createElement('div');
-      box.classList.add('numeric-box');
-    
-      let box_numeric_text = document.createElement('div');
-      box_numeric_text.classList.add('numbers');/**/
-      box_numeric_text.innerText = heading;
-
-      let alpha = document.createElement('div');
-      alpha.classList.add('alpha_text');
-      alpha.innerText = text;
+      box.classList.add('box');
+      box.innerText = heading;
       
+      let footer = document.createElement('div');
+      footer.classList.add('footer');
+      footer.innerText = text;
+
+      bothboxes.appendChild(box);
+      bothboxes.appendChild(footer);
+
+      document.getElementById('boxes').appendChild(bothboxes);
+      }
       
-      box.appendChild(box_numeric_text);
-      document.getElementById('screen-box').appendChild(box);
-
-      document.getElementById('screen-box').appendChild(alpha);
-    }
-
-      let data =[
-        { heading: 1, text: 'One' },
-        { heading: 2, text: 'two' },
-        { heading: 3, text: 'three' },
-        { heading: 4, text: 'four' },
-        { heading: 5, text: 'five' }
+      let data = [
+        {heading: '1', text: 'one'},
+        {heading: '2', text: 'two'},
+        {heading: '3', text: 'three'},
+        {heading: '4', text: 'four'},
+        {heading: '5', text: 'five'},
+        {heading: '6', text: 'six'},
+        {heading: '7', text: 'seven'},
+        {heading: '8', text: 'eight'},
+        {heading: '9', text: 'nine'},
+        {heading: '10', text: 'ten'},
       ];
 
       for(let i=0;i<data.length;i++)
       {
         let item = data[i];
-        makeBox(item.heading,item.text);
+        multiple_boxes(item.heading, item.text);
       }
-
-     
-    </script>
+      
+      </script>
+  
   </body>
 </html>
 
